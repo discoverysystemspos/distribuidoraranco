@@ -206,6 +206,8 @@ const updateInvoice = async(req, res = response) => {
 
     const _id = req.params.id;
 
+    console.log('update');
+
     try {
 
         // SEARCH INVOICE
@@ -219,7 +221,7 @@ const updateInvoice = async(req, res = response) => {
         // SEARCH INVOICE
 
         const {...campos } = req.body;
-        const invoiceUpdate = await Invoice.findByIdAndUpdate(uid, campos, { new: true });
+        const invoiceUpdate = await Invoice.findByIdAndUpdate(_id, campos, { new: true });
 
         res.json({
             ok: true,

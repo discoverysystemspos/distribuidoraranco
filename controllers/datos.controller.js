@@ -9,7 +9,7 @@ const getDatos = async(req, res) => {
 
     const status = true;
 
-    const datos = await Datos.findOne({status}, 'name address phone nit tax logo');
+    const datos = await Datos.findOne({ status }, 'name address phone nit tax logo');
 
     res.json({
         ok: true,
@@ -28,8 +28,6 @@ const createDatos = async(req, res = response) => {
     try {
 
         const validarDatos = await Datos.find();
-
-        console.log(validarDatos.length);
 
         if (validarDatos.length !== 0) {
             return res.status(400).json({
